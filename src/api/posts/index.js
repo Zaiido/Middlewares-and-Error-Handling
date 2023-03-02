@@ -57,7 +57,7 @@ postsRouter.put("/:postId", (request, response, next) => {
 
     try {
         const posts = getPosts()
-        const index = posts.indexOf(post => post._id === request.params.postId)
+        const index = posts.findIndex(post => post._id === request.params.postId)
         if (index !== -1) {
             const oldPost = posts[index]
             const updatedPost = { ...oldPost, ...request.body }
